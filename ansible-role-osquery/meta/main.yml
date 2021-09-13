@@ -1,0 +1,12 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: osquery
+  author: author_name
+  description: Install and configure osquery
+  company: example.org
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.4
+
+  galaxy_tags: []

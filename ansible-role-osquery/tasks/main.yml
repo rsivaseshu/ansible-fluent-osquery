@@ -1,0 +1,6 @@
+---
+
+
+# Include OS-specific installation tasks.
+- include_tasks: 'setup-{{ ansible_os_family }}.yml'
+

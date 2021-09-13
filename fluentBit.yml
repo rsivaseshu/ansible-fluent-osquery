@@ -1,0 +1,6 @@
+---
+- hosts: all
+  become: yes
+  roles:
+  - role: ansible-role-fluentbit
+  - role: ansible-role-osquery

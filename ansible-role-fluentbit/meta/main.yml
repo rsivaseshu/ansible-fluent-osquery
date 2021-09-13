@@ -1,0 +1,22 @@
+---
+galaxy_info:
+  role_name: fluentbit
+  author: author_name
+  description: Install Fluentbit as a service
+  company: example.org
+
+  license: license BSD
+
+  min_ansible_version: 2.4
+
+  # platforms:
+  #   - name: EL
+  #     versions:
+  #       - 7
+  #   - name: Ubuntu
+  #     versions:
+  #       - all
+
+  galaxy_tags: []
+
+dependencies: []
