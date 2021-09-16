@@ -33,14 +33,14 @@
     state: present
   notify: start osquery service
 
-- name: Install fluentbit package
+- name: fluentbit package restart
   package:
     name: td-agent-bit
     state: present
     update_cache: true
   notify: Restart Fluentbit service
 
-- name: osquery package update
+- name: osquery package restart
   package:
     name: osquery
     state: present
