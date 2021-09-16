@@ -8,22 +8,30 @@
     name: https://packages.fluentbit.io/centos/7/x86_64/td-agent-bit-1.7.9-1.x86_64.rpm
     state: present
 
-- name: install the osquery 
+- name: install the osquery rpm 
   yum:
-    name: osquery
+    name: https://pkg.osquery.io/rpm/osquery-4.9.0-1.linux.x86_64.rpm
     state: present
 
+# - name: Run expect to wait for a successful PXE boot via out-of-band CIMC
+#   shell: |
+#     curl -L https://pkg.osquery.io/rpm/GPG | sudo tee /etc/pki/rpm-gpg/RPM-GPG-KEY-osquery
+#     yum-config-manager --add-repo https://pkg.osquery.io/rpm/osquery-5.0.1-1.linux.x86_64.rpm
+#     yum-config-manager --enable osquery-s3-rpm-repo
+#     yum install osquery
+#     exit 0
+    
 # - name: start fluentbit service
 #   package:
 #     name: td-agent-bit
 #     state: present
 #   notify: start Fluentbit service
 
-# - name: Start Osquery Service
-#   package:
-#     name: osquery
-#     state: present
-#   notify: start osquery service
+- name: Start Osquery Service
+  package:
+    name: osquery
+    state: present
+  notify: start osquery service
 
 - name: Install fluentbit package
   package:

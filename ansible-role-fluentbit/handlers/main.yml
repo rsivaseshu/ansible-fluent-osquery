@@ -14,12 +14,12 @@
     state: restarted
   become: true
 
-# - name: start osquery service
-#   service:
-#     name: osquery
-#     enabled: true
-#     state: start
-#   become: true
+- name: start osquery service
+  service:
+    name: osquery
+    enabled: true
+    state: start
+  become: true
 
 - name: Restart osquery service
   service:
