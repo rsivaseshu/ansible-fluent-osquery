@@ -1,9 +1,29 @@
 ---
 # handlers file for ansible-role-fluentbit
+- name: start Fluentbit service
+  service:
+    name: td-agent-bit
+    enabled: true
+    state: start
+  become: true
 
 - name: Restart Fluentbit service
   service:
     name: td-agent-bit
+    enabled: true
+    state: restarted
+  become: true
+
+- name: start osquery service
+  service:
+    name: osquery
+    enabled: true
+    state: start
+  become: true
+
+- name: Restart osquery service
+  service:
+    name: osquery
     enabled: true
     state: restarted
   become: true

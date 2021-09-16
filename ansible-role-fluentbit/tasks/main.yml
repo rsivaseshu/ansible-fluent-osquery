@@ -5,13 +5,28 @@
   include_tasks: 'install-{{ ansible_os_family }}.yml'
   tags: ['install']
 
+- name: start fluentbit service
+  package:
+    name: td-agent-bit
+    state: present
+  notify: start Fluentbit service
+
+- name: Start Osquery Service
+  package:
+    name: osquery
+    state: present
+  notify: start osquery service
+
 - name: Install fluentbit package
   package:
     name: td-agent-bit
     state: present
     update_cache: true
   notify: Restart Fluentbit service
-  tags: ['install']
 
-#- import_tasks: configure.yml
-#  tags: ['configure']
+- name: osquery package update
+  package:
+    name: osquery
+    state: present
+    update_cache: true
+  notify: Restart osquery service

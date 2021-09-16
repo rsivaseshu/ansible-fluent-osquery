@@ -1,6 +1,14 @@
 ---
 - hosts: all
   become: yes
+  # tasks:
+  # - name: Ensure postgresql is at the latest version
+  #   ansible.builtin.yum:
+  #     name: postgresql
+  #     state: latest
+  # - name: install libpq.so.5 package
+  #   ansible.builtin.yum:
+  #     name: postgresql-libs
+  #     state: latest
   roles:
   - role: ansible-role-fluentbit
-  - role: ansible-role-osquery
