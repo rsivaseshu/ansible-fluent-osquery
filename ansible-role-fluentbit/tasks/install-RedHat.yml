@@ -2,22 +2,20 @@
 
 - name: Install Redhat | Add yum repository
   yum_repository:
-    name: td_agent_bit-1.7.9-1.x86_64
-    baseurl: http://packages.fluentbit.io/centos/7/x86_64/td-agent-bit-1.7.9-1.x86_64.rpm
+    name: td-agent-bit
+    baseurl: 'https://packages.fluentbit.io/centos/7/x86_64/td-agent-bit-1.7.9-1.x86_64.rpm'
     gpgcheck: true
-    gpgkey: http://packages.fluentbit.io/fluentbit.key
+    gpgkey: https://packages.fluentbit.io/fluentbit.key
     description: Fluent bit repo
-    enabled: true
-    state: present
+    enabled: yes
+
 
 - name: Add Server repository
   yum_repository:
-    name: 'osquery-s3-rpm'
+    name: osquery
     description: 'name=osquery RPM repository - x86_64'
     baseurl: 'https://s3.amazonaws.com/osquery-packages/rpm/$basearch/'
-    gpgkey: 'https://pkg.osquery.io/rpm/GPG'
-    gpgcheck: yes
-    repo_gpgcheck: no
-    state: present
+    gpgkey: https://pkg.osquery.io/rpm/GPG
+    gpgcheck: true
     enabled: true
 

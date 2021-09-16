@@ -1,21 +1,29 @@
 ---
 # tasks file for ansible-role-fluentbit
-
-- name: Install Fluentbit
+- name: Install Fluentbit and osquery
   include_tasks: 'install-{{ ansible_os_family }}.yml'
   tags: ['install']
-
-- name: start fluentbit service
-  package:
-    name: td-agent-bit
+- name: install the td-agent-bit rpm 
+  yum:
+    name: https://packages.fluentbit.io/centos/7/x86_64/td-agent-bit-1.7.9-1.x86_64.rpm
     state: present
-  notify: start Fluentbit service
 
-- name: Start Osquery Service
-  package:
+- name: install the osquery 
+  yum:
     name: osquery
     state: present
-  notify: start osquery service
+
+# - name: start fluentbit service
+#   package:
+#     name: td-agent-bit
+#     state: present
+#   notify: start Fluentbit service
+
+# - name: Start Osquery Service
+#   package:
+#     name: osquery
+#     state: present
+#   notify: start osquery service
 
 - name: Install fluentbit package
   package:
